@@ -1,0 +1,21 @@
+name: test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: testtttt
+    runs-on: windows-2025
+    
+    steps:
+      - name: Downloading & Installing Essentials
+        run: |
+          Invoke-WebRequest -Uri "https://gitlab.com/candycane2/lite_manager_win/raw/main/Downloads.bat" -OutFile "Downloads.bat"
+          cmd /c Downloads.bat
+
+      - name: Connect to LiteManager
+        run: cmd /c show.bat
+
+      - name: Time Counter
+        run: cmd /c loop.bat
